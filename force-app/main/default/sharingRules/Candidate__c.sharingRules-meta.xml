@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingOwnerRules>
+        <fullName>Share_Candidates</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share Candidates</label>
+        <sharedTo>
+            <role>CTO</role>
+        </sharedTo>
+        <sharedFrom>
+            <allInternalUsers/>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Share_Candidates_with_CTO</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Share Candidates with CTO</description>
+        <label>Share Candidates with CTO</label>
+        <sharedTo>
+            <role>CTO</role>
+        </sharedTo>
+        <sharedFrom>
+            <role>HR</role>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Show_Tech_Interview_Candidates_to_HR</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Show Tech Interview Candidates to HR</description>
+        <label>Show Tech Interview Candidates to HR</label>
+        <sharedTo>
+            <role>HR</role>
+        </sharedTo>
+        <sharedFrom>
+            <role>Technical_Interviewer</role>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>
