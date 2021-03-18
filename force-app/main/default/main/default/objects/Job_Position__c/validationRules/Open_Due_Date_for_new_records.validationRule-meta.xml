@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Open_Due_Date_for_new_records</fullName>
+    <active>true</active>
+    <description>Open Due Date for new records cannot be in the past</description>
+    <errorConditionFormula>AND(ISNEW(), Open_Due_Date__c &lt;  TODAY())</errorConditionFormula>
+    <errorDisplayField>Open_Due_Date__c</errorDisplayField>
+    <errorMessage>Open Due Date of a new Job Position record cannot be in the past</errorMessage>
+</ValidationRule>

@@ -1,0 +1,617 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Job_Position</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Job_Position</content>
+        <formFactor>Small</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>Job_Position_Compact_Layout</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>Job_Position_Compact_Layout</fullName>
+        <fields>Name</fields>
+        <fields>Location__c</fields>
+        <fields>Priority__c</fields>
+        <fields>Open_Due_Date__c</fields>
+        <fields>OwnerId</fields>
+        <fields>RecordTypeId</fields>
+        <label>Job Position Compact Layout</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Job Position</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>Candidate_Level__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Candidate Level</inlineHelpText>
+        <label>Candidate Level</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Software Engineer</fullName>
+                    <default>false</default>
+                    <label>Software Engineer</label>
+                </value>
+                <value>
+                    <fullName>Senior Software Engineer</fullName>
+                    <default>false</default>
+                    <label>Senior Software Engineer</label>
+                </value>
+                <value>
+                    <fullName>Lead Software Engineer</fullName>
+                    <default>false</default>
+                    <label>Lead Software Engineer</label>
+                </value>
+                <value>
+                    <fullName>Junior Software Engineer</fullName>
+                    <default>false</default>
+                    <label>Junior Software Engineer</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Client__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>Client for external Job Position</description>
+        <externalId>false</externalId>
+        <label>Client</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Job Positions</relationshipLabel>
+        <relationshipName>Job_Positions</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Company_Offices__c</fullName>
+        <description>Company Offices</description>
+        <externalId>false</externalId>
+        <formula>CASE(Location__c, 
+&quot;USA&quot;, &quot;Chicago, Boston, New York&quot;, 
+&quot;Ukraine&quot;, &quot;Kyiv, Lviv, Ternopil&quot;,
+&quot;Belarus&quot;,&quot;Minsk, Brest&quot;,
+&quot;Poland&quot;, &quot;Wroclaw&quot;,
+&quot;&quot;)</formula>
+        <label>Company Offices</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>HR_Manager__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>HR Manager</description>
+        <externalId>false</externalId>
+        <label>HR Manager</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Job Positions</relationshipLabel>
+        <relationshipName>Job_Positions</relationshipName>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Job_Position_Title__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Job Position Title</inlineHelpText>
+        <label>Job Position Title</label>
+        <length>100</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Location__c</fullName>
+        <externalId>false</externalId>
+        <label>Location</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Ukraine</fullName>
+                    <default>false</default>
+                    <label>Ukraine</label>
+                </value>
+                <value>
+                    <fullName>USA</fullName>
+                    <default>false</default>
+                    <label>USA</label>
+                </value>
+                <value>
+                    <fullName>Belarus</fullName>
+                    <default>false</default>
+                    <label>Belarus</label>
+                </value>
+                <value>
+                    <fullName>Poland</fullName>
+                    <default>false</default>
+                    <label>Poland</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Maximal_requested_salary__c</fullName>
+        <description>Maximal requested salary</description>
+        <externalId>false</externalId>
+        <label>Maximal requested salary</label>
+        <summarizedField>Job_Application__c.Desired_Salary__c</summarizedField>
+        <summaryForeignKey>Job_Application__c.Application_Position__c</summaryForeignKey>
+        <summaryOperation>max</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Minimal_requested_salary__c</fullName>
+        <description>Minimal requested salary</description>
+        <externalId>false</externalId>
+        <label>Minimal requested salary</label>
+        <summarizedField>Job_Application__c.Desired_Salary__c</summarizedField>
+        <summaryForeignKey>Job_Application__c.Application_Position__c</summaryForeignKey>
+        <summaryOperation>min</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Open_Due_Date__c</fullName>
+        <description>Open Due Date</description>
+        <externalId>false</externalId>
+        <label>Open Due Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Position_Budget__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Job Position Budget</inlineHelpText>
+        <label>Position Budget</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Position_Description__c</fullName>
+        <description>Position Description</description>
+        <externalId>false</externalId>
+        <label>Position Description</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Practice_Unit__c</fullName>
+        <description>Willing to work remote</description>
+        <externalId>false</externalId>
+        <label>Practice Unit</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>.Net</fullName>
+                    <default>false</default>
+                    <label>.Net</label>
+                </value>
+                <value>
+                    <fullName>Java</fullName>
+                    <default>false</default>
+                    <label>Java</label>
+                </value>
+                <value>
+                    <fullName>Salesforce</fullName>
+                    <default>false</default>
+                    <label>Salesforce</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Priority__c</fullName>
+        <externalId>false</externalId>
+        <label>Priority</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Hot</fullName>
+                    <default>false</default>
+                    <label>Hot</label>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                    <label>Medium</label>
+                </value>
+                <value>
+                    <fullName>Low</fullName>
+                    <default>false</default>
+                    <label>Low</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Total_number_of_applications__c</fullName>
+        <description>Total number of applications</description>
+        <externalId>false</externalId>
+        <label>Total number of applications</label>
+        <summaryForeignKey>Job_Application__c.Application_Position__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Willing_to_work_remote__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Willing to work remote</description>
+        <externalId>false</externalId>
+        <label>Willing to work remote</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Job Position</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>JP-{0000}</displayFormat>
+        <label>Job Position Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Job Positions</pluralLabel>
+    <recordTypes>
+        <fullName>External_Job_Position</fullName>
+        <active>true</active>
+        <description>External Job Position</description>
+        <label>External Job Position</label>
+        <picklistValues>
+            <picklist>Candidate_Level__c</picklist>
+            <values>
+                <fullName>Junior Software Engineer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lead Software Engineer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Senior Software Engineer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Software Engineer</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Location__c</picklist>
+            <values>
+                <fullName>Belarus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Poland</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ukraine</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Practice_Unit__c</picklist>
+            <values>
+                <fullName>%2ENet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Java</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Salesforce</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Priority__c</picklist>
+            <values>
+                <fullName>Hot</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Internal_Job_Position</fullName>
+        <active>true</active>
+        <description>Internal Job Position</description>
+        <label>Internal Job Position</label>
+        <picklistValues>
+            <picklist>Candidate_Level__c</picklist>
+            <values>
+                <fullName>Junior Software Engineer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lead Software Engineer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Senior Software Engineer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Software Engineer</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Location__c</picklist>
+            <values>
+                <fullName>Belarus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Poland</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ukraine</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Practice_Unit__c</picklist>
+            <values>
+                <fullName>%2ENet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Java</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Salesforce</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Priority__c</picklist>
+            <values>
+                <fullName>Hot</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts/>
+    <sharingModel>Private</sharingModel>
+    <validationRules>
+        <fullName>Check_HR_Manager_Address_for_US_location</fullName>
+        <active>true</active>
+        <description>Check HR Manager Address for US Location</description>
+        <errorConditionFormula>AND(  ISPICKVAL(Location__c, &quot;USA&quot;), NOT(
+OR(
+HR_Manager__r.MailingCountry == &quot;US&quot;,
+HR_Manager__r.MailingCountry == &quot;USA&quot;,
+HR_Manager__r.MailingCountry == &quot;United States&quot;
+)
+))</errorConditionFormula>
+        <errorDisplayField>HR_Manager__c</errorDisplayField>
+        <errorMessage>For location &quot;USA&quot;, HR Manager&apos;s Mailing Country should be US, USA or United States</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Open_Due_Date_for_new_records</fullName>
+        <active>true</active>
+        <description>Open Due Date for new records cannot be in the past</description>
+        <errorConditionFormula>AND(ISNEW(), Open_Due_Date__c &lt;  TODAY())</errorConditionFormula>
+        <errorDisplayField>Open_Due_Date__c</errorDisplayField>
+        <errorMessage>Open Due Date of a new Job Position record cannot be in the past</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Require_Location_Only_For_Nonremote_Work</fullName>
+        <active>true</active>
+        <description>Require Location Only For Nonremote Work</description>
+        <errorConditionFormula>AND( Willing_to_work_remote__c = False,  ISBLANK(TEXT(Location__c)))</errorConditionFormula>
+        <errorDisplayField>Location__c</errorDisplayField>
+        <errorMessage>Location is mandatory for non-remote Job Positions.</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>
