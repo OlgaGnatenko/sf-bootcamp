@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Require_Location_Only_For_Nonremote_Work</fullName>
+    <active>true</active>
+    <description>Require Location Only For Nonremote Work</description>
+    <errorConditionFormula>AND( Willing_to_work_remote__c = False,  ISBLANK(TEXT(Location__c)))</errorConditionFormula>
+    <errorDisplayField>Location__c</errorDisplayField>
+    <errorMessage>Location is mandatory for non-remote Job Positions.</errorMessage>
+</ValidationRule>

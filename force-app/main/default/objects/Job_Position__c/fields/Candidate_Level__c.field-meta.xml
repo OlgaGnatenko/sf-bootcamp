@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Candidate_Level__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Candidate Level</inlineHelpText>
+    <label>Candidate Level</label>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Software Engineer</fullName>
+                <default>false</default>
+                <label>Software Engineer</label>
+            </value>
+            <value>
+                <fullName>Senior Software Engineer</fullName>
+                <default>false</default>
+                <label>Senior Software Engineer</label>
+            </value>
+            <value>
+                <fullName>Lead Software Engineer</fullName>
+                <default>false</default>
+                <label>Lead Software Engineer</label>
+            </value>
+            <value>
+                <fullName>Junior Software Engineer</fullName>
+                <default>false</default>
+                <label>Junior Software Engineer</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Maximal_requested_salary__c</fullName>
+    <description>Maximal requested salary</description>
+    <externalId>false</externalId>
+    <label>Maximal requested salary</label>
+    <summarizedField>Job_Application__c.Desired_Salary__c</summarizedField>
+    <summaryForeignKey>Job_Application__c.Application_Position__c</summaryForeignKey>
+    <summaryOperation>max</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

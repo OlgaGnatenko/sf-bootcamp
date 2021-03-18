@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Hire_Reasoning__c</fullName>
+    <description>Reasoning why the candidate should be hired to the target position</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Why should we hire you?</inlineHelpText>
+    <label>Hire Reasoning</label>
+    <length>32768</length>
+    <trackTrending>false</trackTrending>
+    <type>Html</type>
+    <visibleLines>25</visibleLines>
+</CustomField>
