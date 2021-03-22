@@ -162,9 +162,8 @@
     <externalSharingModel>Private</externalSharingModel>
     <label>Job Position</label>
     <nameField>
-        <displayFormat>JP-{0000}</displayFormat>
         <label>Job Position Name</label>
-        <type>AutoNumber</type>
+        <type>Text</type>
     </nameField>
     <pluralLabel>Job Positions</pluralLabel>
     <searchLayouts/>
