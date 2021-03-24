@@ -38,22 +38,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Job_Application__c.Recovered__c</field>
+        <field>Candidate__c.Recovered__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Job_Application__c.USA_Visa_Holder__c</field>
+        <field>Candidate__c.USA_Visa_Holder__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Job_Application__c.USA_Visa_Valid_From__c</field>
+        <field>Candidate__c.USA_Visa_Valid_From__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Job_Application__c.USA_Visa_Valid_To__c</field>
+        <field>Candidate__c.USA_Visa_Valid_To__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
