@@ -184,7 +184,7 @@
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <recordTypeVisibilities>
-        <default>true</default>
+        <default>false</default>
         <recordType>Job_Position__c.External_Job_Position</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
