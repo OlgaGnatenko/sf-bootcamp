@@ -1,71 +1,72 @@
 @isTest
 private class JobPositionTriggerTest {
-  static final int NUM_TEST_RECORDS = 300;
+  static final Integer NUM_TEST_RECORDS = 300;
+  static final Integer BASE_PREFIX = 'P';
+  static final Integer SF_PREFIX = 'SF-';
 
-  //   static void makeContact() {
-  //     return new Contact(LastName = 'TestContact');
-  //   }
+    static void makeContact() {
+      return new Contact(LastName = 'TestContact');
+    }
 
-  //   static void makeJobPositions(Contact contact) {
-  //     List<JobPosition__c> jobPositions = new List<JobPosition__c>();
+    static void makeJobPositions(Contact contact) {
+      List<Job_Position__c> jobPositions = new List<Job_Position__c>();
 
-  //     for (Integer i = 0; i < NUM_TEST_RECORDS; i++) {
-  //       jobPositions.add(
-  //         new JobPosition__c(
-  //           Name = 'P' + i,
-  //           Job_Position_Title__c = 'Software Engineer',
-  //           Candidate_Level__c = 'Software Engineer',
-  //           Open_Due_Date__c = (new Date()).plusDays(1),
-  //           Priority__c = 'High',
-  //           Location__c = 'Ukraine',
-  //           Practice_Unit__c = (math.mod(i, 2) > 0) ? 'Salesforce' : 'Java',
-  //           HR_Manager__c = contact.Id
-  //         )
-  //       );
-  //     }
-  //     return jobPositions;
-  //   }
+      for (Integer i = 0; i < NUM_TEST_RECORDS; i++) {
+        jobPositions.add(
+          new Job_Position__c(
+            Name = BASE_PREFIX + i,
+            Job_Position_Title__c = 'Software Engineer',
+            Candidate_Level__c = 'Software Engineer',
+            Open_Due_Date__c = Date.today(),
+            Priority__c = 'Hot',
+            Location__c = 'Ukraine',
+            Practice_Unit__c = (math.mod(i, 2) > 0) ? 'Salesforce' : 'Java',
+            HR_Manager__c = contact.Id
+          )
+        );
+      }
+      return jobPositions;
+    }
 
   @TestSetup
   static void makeData() {
-    // contact = makeContact();
-    // insert contact;
-    // List<JobPosition__c> jobPositions = makeJobPositions(contact);
-    // insert jobPositions;
-    Contact contact = new Contact(LastName = 'TestContact');
-    List<JobPosition__c> jobPositions = new List<JobPosition__c>();
+    contact = makeContact();
+    insert contact;
+    List<Job_Position__c> jobPositions = makeJobPositions(contact);
+    insert jobPositions;
+
+
+    List<Job_Position__c> jobPositions = new List<Job_Position__c>();
 
     for (Integer i = 0; i < NUM_TEST_RECORDS; i++) {
       jobPositions.add(
-        new JobPosition__c(
+        new Job_Position__c(
           Name = 'P' + i,
           Job_Position_Title__c = 'Software Engineer',
           Candidate_Level__c = 'Software Engineer',
-          Open_Due_Date__c = (new Date()).plusDays(1),
-          Priority__c = 'High',
+          Open_Due_Date__c = Date.today(),
+          Priority__c = 'Hot',
           Location__c = 'Ukraine',
           Practice_Unit__c = (math.mod(i, 2) > 0) ? 'Salesforce' : 'Java',
           HR_Manager__c = contact.Id
         )
       );
     }
-    insert contact;
     insert jobPositions;
-    System.debug('Test setup worked!');
   }
 
   @isTest
   static void testUpdateJobPositionTitle() {
-    List<JobPosition__c> testJobPositions = [
+    List<Job_Position__c> testJobPositions = [
       SELECT Name, Practice_Unit__c
-      FROM JobPosition__c
+      FROM Job_Position__c
     ];
 
-    for (JobPosition__c position : testJobPositions) {
+    for (Job_Position__c position : testJobPositions) {
       if (position.Practice_Unit__c == 'Salesforce') {
-        System.assert(position.Name.startsWith('SF-'));
+        System.assert(position.Name.startsWith(SF_PREFIX ));
       } else {
-        System.assert(position.Name.startsWith('P'));
+        System.assert(position.Name.startsWith(BASE_PREFIX));
       }
     }
   }
