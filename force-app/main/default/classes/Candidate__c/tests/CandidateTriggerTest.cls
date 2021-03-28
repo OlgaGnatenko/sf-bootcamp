@@ -38,7 +38,7 @@ public with sharing class CandidateTriggerTest {
         System.assert(result.isSuccess() == false);
         System.assert(result.getErrors().size() == 1);
         System.assert(
-          result.getErrors()[0].getMessage() == VISA_DATES_ERROR_TEXT
+          result.getErrors()[0].getMessage() == CandidateHelper.VISA_DATES_ERROR_TEXT
         );
       }
       i++;
@@ -70,7 +70,7 @@ public with sharing class CandidateTriggerTest {
       }
     }
 
-    results = Database.update(candidates, false);
+    results = Database.update(testCandidates, false);
 
     i = 0;
     for (Database.SaveResult result : results) {
@@ -78,7 +78,7 @@ public with sharing class CandidateTriggerTest {
         System.assert(result.isSuccess() == false);
         System.assert(result.getErrors().size() == 1);
         System.assert(
-          result.getErrors()[0].getMessage() == VISA_DATES_ERROR_TEXT
+          result.getErrors()[0].getMessage() == CandidateHelper.VISA_DATES_ERROR_TEXT
         );
       } else {
         System.assert(result.isSuccess() == true);
@@ -104,7 +104,7 @@ public with sharing class CandidateTriggerTest {
       }
     }
 
-    results = Database.update(candidates, false);
+    results = Database.update(testCandidates, false);
 
     for (Database.SaveResult result : results) {
       System.assert(result.isSuccess() == true);
