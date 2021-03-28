@@ -1,5 +1,5 @@
 public with sharing class JobApplicationHelper {
-  public static final String VISA_EXPIRY_ERROR_TEXT = 'Please specify your visa date information';
+  public static final String VISA_EXPIRY_ERROR_TEXT = 'You can not apply for this job due to your US visa expiration date';
   public static final Integer MIN_YEARS_TO_VISA_EXPIRY_DATE = 1;
 
   public static void validateUSAVisaExpiryDate(

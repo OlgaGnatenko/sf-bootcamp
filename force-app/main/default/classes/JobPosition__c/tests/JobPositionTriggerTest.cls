@@ -1,27 +1,20 @@
 @isTest
-private class JobPositionTriggerTest {
+public with sharing class JobPositionTriggerTest {
   static final Integer NUM_TEST_RECORDS = 300;
-  static final String BASE_PREFIX = 'P';
   static final String SF_PREFIX = 'SF-';
-
-  static Contact makeContact() {
-    return new Contact(LastName = 'TestContact');
-  }
 
   static List<Job_Position__c> makeJobPositions(Contact contact) {
     List<Job_Position__c> jobPositions = new List<Job_Position__c>();
+    String practiceUnit = null;
 
     for (Integer i = 0; i < NUM_TEST_RECORDS; i++) {
+      practiceUnit = (math.mod(i, 2) > 0) ? 'Salesforce' : 'Java';
       jobPositions.add(
-        new Job_Position__c(
-          Name = BASE_PREFIX + i,
-          Job_Position_Title__c = 'Software Engineer',
-          Candidate_Level__c = 'Software Engineer',
-          Open_Due_Date__c = Date.today(),
-          Priority__c = 'Hot',
-          Location__c = 'Ukraine',
-          Practice_Unit__c = (math.mod(i, 2) > 0) ? 'Salesforce' : 'Java',
-          HR_Manager__c = contact.Id
+        HiringApplicationDataEntities.makeJobPosition(
+          contact.Id,
+          i,
+          'Ukraine',
+          practiceUnit
         )
       );
     }
@@ -30,7 +23,7 @@ private class JobPositionTriggerTest {
 
   @TestSetup
   static void makeData() {
-    Contact contact = makeContact();
+    Contact contact = HiringApplicationDataEntities.makeContact();
     insert contact;
     List<Job_Position__c> jobPositions = makeJobPositions(contact);
     insert jobPositions;
@@ -47,7 +40,11 @@ private class JobPositionTriggerTest {
       if (position.Practice_Unit__c == 'Salesforce') {
         System.assert(position.Name.startsWith(SF_PREFIX));
       } else {
-        System.assert(position.Name.startsWith(BASE_PREFIX));
+        System.assert(
+          position.Name.startsWith(
+            HiringApplicationDataEntities.BASE_POSITION_PREFIX
+          )
+        );
       }
     }
   }

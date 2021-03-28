@@ -1,32 +1,7 @@
 @isTest
-private class CandidateTriggerTest {
+public with sharing class CandidateTriggerTest {
   static final Integer NUM_TEST_RECORDS = 300;
   static final String VISA_DATES_ERROR_TEXT = 'Please specify your visa date information';
-
-  static Candidate__c makeCandidate(boolean visaHolder, boolean isValid) {
-    Candidate__c candidate = new Candidate__c(
-      Full_Name__c = 'Mr Smith',
-      Email__c = 'mrsmith@ogred.com'
-    );
-
-    if (!visaHolder) {
-      candidate.USA_Visa_Holder__c = false;
-      candidate.USA_Visa_Valid_From__c = null;
-      candidate.USA_Visa_Valid_To__c = null;
-      return candidate;
-    }
-
-    candidate.USA_Visa_Holder__c = true;
-    if (isValid) {
-      candidate.USA_Visa_Valid_From__c = Date.today();
-      candidate.USA_Visa_Valid_To__c = Date.today();
-      return candidate;
-    }
-
-    candidate.USA_Visa_Valid_From__c = null;
-    candidate.USA_Visa_Valid_To__c = null;
-    return candidate;
-  }
 
   static List<Candidate__c> makeCandidates() {
     List<Candidate__c> candidates = new List<Candidate__c>();
@@ -36,32 +11,23 @@ private class CandidateTriggerTest {
 
     for (Integer i = 0; i < NUM_TEST_RECORDS; i++) {
       if (math.mod(i, 3) == 0) {
-        // non-visa holders
         visaHolder = false;
       } else {
         visaHolder = true;
         // valid visa holders i%3 == 1, invalid visa holders i%3 == 2
         isValid = (math.mod(i, 3) == 1);
       }
-      candidate = makeCandidate(visaHolder, isValid);
+      candidate = HiringApplicationDataEntities.makeCandidate(visaHolder, isValid, null, null);
       candidates.add(candidate);
     }
     return candidates;
   }
 
-  // @TestSetup
-  // static void makeData() {
-  //   List<Candidate__c> candidates = makeCandidates();
-  //   insert candidates;
-  // }
-
   @isTest
   static void testValidateUSAVisaDates() {
     // test all 3 cases onCreate
     List<Candidate__c> candidates = makeCandidates();
-    // Test.startTest();
     List<Database.SaveResult> results = Database.insert(candidates, false);
-    // Test.stopTest();
 
     Integer i = 0;
     for (Database.SaveResult result : results) {
@@ -104,9 +70,7 @@ private class CandidateTriggerTest {
       }
     }
 
-    // Test.startTest();
     results = Database.update(candidates, false);
-    // Test.stopTest();
 
     i = 0;
     for (Database.SaveResult result : results) {
@@ -140,9 +104,7 @@ private class CandidateTriggerTest {
       }
     }
 
-    // Test.startTest();
     results = Database.update(candidates, false);
-    // Test.stopTest();
 
     for (Database.SaveResult result : results) {
       System.assert(result.isSuccess() == true);
