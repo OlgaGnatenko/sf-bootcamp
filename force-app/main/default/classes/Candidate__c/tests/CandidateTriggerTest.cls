@@ -17,8 +17,23 @@ public with sharing class CandidateTriggerTest {
         // valid visa holders i%3 == 1, invalid visa holders i%3 == 2
         isValid = (math.mod(i, 3) == 1);
       }
-      candidate = HiringApplicationDataEntities.makeCandidate(visaHolder, isValid, null, null);
+      candidate = HiringApplicationDataEntities.makeCandidate(
+        visaHolder,
+        isValid,
+        null,
+        null
+      );
       candidates.add(candidate);
+    }
+    return candidates;
+  }
+
+  static List<Candidate__c> makeUndeletedCandidates() {
+    List<Candidate__c> candidates = new List<Candidate__c>();
+    for (Integer i = 0; i < NUM_TEST_RECORDS; i++) {
+      candidates.add(
+        HiringApplicationDataEntities.makeCandidate(false, false, null, null)
+      );
     }
     return candidates;
   }
@@ -38,7 +53,8 @@ public with sharing class CandidateTriggerTest {
         System.assert(result.isSuccess() == false);
         System.assert(result.getErrors().size() == 1);
         System.assert(
-          result.getErrors()[0].getMessage() == CandidateHelper.VISA_DATES_ERROR_TEXT
+          result.getErrors()[0].getMessage() ==
+          CandidateHelper.VISA_DATES_ERROR_TEXT
         );
       }
       i++;
@@ -78,7 +94,8 @@ public with sharing class CandidateTriggerTest {
         System.assert(result.isSuccess() == false);
         System.assert(result.getErrors().size() == 1);
         System.assert(
-          result.getErrors()[0].getMessage() == CandidateHelper.VISA_DATES_ERROR_TEXT
+          result.getErrors()[0].getMessage() ==
+          CandidateHelper.VISA_DATES_ERROR_TEXT
         );
       } else {
         System.assert(result.isSuccess() == true);
@@ -109,6 +126,34 @@ public with sharing class CandidateTriggerTest {
     for (Database.SaveResult result : results) {
       System.assert(result.isSuccess() == true);
       System.assert(result.getErrors().size() == 0);
+    }
+  }
+
+  @isTest
+  static void testMarkRecoveredRecords() {
+    List<Candidate__c> candidates = makeUndeletedCandidates();
+    List<Database.SaveResult> results = Database.insert(candidates, false);
+    List<Candidate__c> testCandidates = [
+      SELECT Id, Recovered__c
+      FROM Candidate__c
+    ];
+    System.assert(testCandidates.size() == NUM_TEST_RECORDS);
+    for (Candidate__c candidate : testCandidates) {
+      System.assert(candidate.Recovered__c == false);
+    }
+
+    delete testCandidates;
+    List<Candidate__c> removedCandidates = [
+      SELECT Id, Recovered__c
+      FROM Candidate__c
+    ];
+    System.assert(removedCandidates.size() == 0);
+
+    undelete testCandidates;
+    testCandidates = [SELECT Id, Recovered__c FROM Candidate__c];
+    System.assert(testCandidates.size() == NUM_TEST_RECORDS);
+    for (Candidate__c candidate : testCandidates) {
+      System.assert(candidate.Recovered__c == true);
     }
   }
 }

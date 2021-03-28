@@ -1,11 +1,13 @@
-trigger CandidateTrigger on Candidate__c (before insert, before update, after undelete) {
-    if (Trigger.isBefore && (Trigger.isInsert || Trigger.isUpdate)) {
-        CandidateTriggerHandler.onBeforeUpsert(Trigger.new);
-    }
-    if (Trigger.isAfter && Trigger.isUndelete) {
-        System.debug('in undelete trigger');
-        System.debug(Trigger.new);
-        CandidateTriggerHandler.onAfterUndelete(Trigger.newMap);
-    }
+trigger CandidateTrigger on Candidate__c(
+  before insert,
+  before update,
+  after undelete
+) {
+  if (Trigger.isBefore && (Trigger.isInsert || Trigger.isUpdate)) {
+    CandidateTriggerHandler.onBeforeUpsert(Trigger.new);
+  }
+  if (Trigger.isAfter && Trigger.isUndelete) {
+    CandidateTriggerHandler.onAfterUndelete(Trigger.newMap);
+  }
 
 }
