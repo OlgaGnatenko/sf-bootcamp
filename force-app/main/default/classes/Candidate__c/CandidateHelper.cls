@@ -13,16 +13,15 @@ public with sharing class CandidateHelper {
     }
   }
 
-  public static void markRecoveredRecords(Map<Candidate__c> candidatesMap) {
-    Candidate__c undeletedCandidates = new Map<Id, Candidate__c>(
-      [
-        SELECT Id, Recovered__c
-        FROM Candidate__c
-        WHERE Id IN :candidatesMap.keySet()
-      ]
-    );
+  public static void markRecoveredRecords(Map<Id, Candidate__c> candidatesMap) {
+    List<Candidate__c> undeletedCandidates = [
+      SELECT Id, Recovered__c
+      FROM Candidate__c
+      WHERE Id IN :candidatesMap.keySet()
+    ];
     for (Candidate__c candidate : undeletedCandidates) {
       candidate.Recovered__c = true;
     }
+    update undeletedCandidates;
   }
 }
