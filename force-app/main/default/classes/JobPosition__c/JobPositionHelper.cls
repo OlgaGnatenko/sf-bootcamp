@@ -46,14 +46,11 @@ public with sharing class JobPositionHelper {
             HIGH_BUDGET_APPLICATION_EMAIL_TEXT + jobPosition.Name;
           message.setToAddresses(new List<String>{ hrManager.email });
           message.setSubject(messageText);
-          message.setHtmlBody('<div><p>' + messageText + '</p></div>');
+          message.setPlainTextBody(messageText);
           messages.add(message);
         }
       }
     }
-
-    System.debug(tasks);
-    System.debug(messages);
 
     insert tasks;
     Messaging.sendEmail(messages);

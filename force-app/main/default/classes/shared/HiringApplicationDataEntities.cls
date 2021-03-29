@@ -1,8 +1,8 @@
 public with sharing class HiringApplicationDataEntities {
   public static final String BASE_POSITION_PREFIX = 'P';
 
-  public static Contact makeContact() {
-    return new Contact(LastName = 'TestContact', MailingCountry = 'USA');
+  public static Contact makeContact(String email) {
+    return new Contact(LastName = 'TestContact', MailingCountry = 'USA', Email = email);
   }
 
   public static Candidate__c makeCandidate(
