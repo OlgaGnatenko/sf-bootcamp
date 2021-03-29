@@ -1,9 +1,8 @@
-trigger JobPositionTrigger on Job_Position__c(before insert) {
+trigger JobPositionTrigger on Job_Position__c(before insert, after update) {
   if (Trigger.isBefore && Trigger.isInsert) {
     JobPositionTriggerHandler.onBeforeInsert(Trigger.new);
   }
-  if (Trigge.isAfter && Trigger.isUpdate) {
-    JobPositionTriggerHandler.onAfterUpdate(Trigger.newMap);
+  if (Trigger.isAfter && Trigger.isUpdate) {
+    JobPositionTriggerHandler.onAfterUpdate(Trigger.new);
   }
-
 }

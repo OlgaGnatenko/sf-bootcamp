@@ -5,7 +5,7 @@ public with sharing class JobPositionTriggerHandler {
     JobPositionHelper.updateJobPositionTitle(insertedJobPositions);
   }
 
-  public static void onAfterUpdate(Map<Id, Job_Position__c> newPositionsMap) {
-    JobPositionHelper.reviewHighBudgetApplication(newPositionsMap);
+  public static void onAfterUpdate(List<Job_Position__c> updatedJobPositions) {
+    JobPositionHelper.reviewHighBudgetApplication(updatedJobPositions);
   }
 }
