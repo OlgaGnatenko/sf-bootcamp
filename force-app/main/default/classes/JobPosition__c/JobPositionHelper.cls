@@ -3,6 +3,7 @@ public with sharing class JobPositionHelper {
   public static final String SF_NAME_PREFIX = 'SF-';
   public static final String HIGH_BUDGET_APPLICATION_TASK_TITLE = 'Review high budget position: ';
   public static final String HIGH_BUDGET_APPLICATION_EMAIL_TEXT = 'Please review this high budget position: ';
+  public static final Integer HIGH_BUDGET_LIMIT = 5000;
 
   public static void updateJobPositionTitle(
     List<Job_Position__c> insertedJobPositions
@@ -29,7 +30,7 @@ public with sharing class JobPositionHelper {
     List<Messaging.SingleEmailMessage> messages = new List<Messaging.SingleEmailMessage>();
 
     for (Job_Position__c jobPosition : updatedJobPositions) {
-      if (jobPosition.Position_Budget__c > 5000) {
+      if (jobPosition.Position_Budget__c > HIGH_BUDGET_LIMIT) {
         tasks.add(
           new Task(
             OwnerId = UserInfo.getUserId(),

@@ -28,7 +28,7 @@ public with sharing class JobApplicationTriggerTest {
       candidateWithExpiredVisa
     };
 
-    Contact hrManager = HiringApplicationDataEntities.makeContact();
+    Contact hrManager = HiringApplicationDataEntities.makeContact(null);
     insert hrManager;
 
     Job_Position__c jobPositionUSA = HiringApplicationDataEntities.makeJobPosition(

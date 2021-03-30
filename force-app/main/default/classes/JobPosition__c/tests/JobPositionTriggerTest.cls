@@ -24,14 +24,15 @@ public with sharing class JobPositionTriggerTest {
 
   static List<Job_Position__c> makeJobPositionsForBudget(
     Contact contact,
-    Integer numRecords
+    Integer numRecords,
+    Integer startNameNumber
   ) {
     List<Job_Position__c> jobPositions = new List<Job_Position__c>();
     for (Integer i = 0; i < numRecords; i++) {
       jobPositions.add(
         HiringApplicationDataEntities.makeJobPosition(
           contact.Id,
-          i,
+          startNameNumber + i,
           'Ukraine',
           'Salesforce'
         )
@@ -77,15 +78,16 @@ public with sharing class JobPositionTriggerTest {
 
     List<Job_Position__c> jobPositions = makeJobPositionsForBudget(
       contactWithoutEmail,
-      NUM_TEST_RECORDS - EMAILS_ALLOWED
+      NUM_TEST_RECORDS - EMAILS_ALLOWED,
+      0
     );
     jobPositions.addAll(
-      makeJobPositionsForBudget(contactWithEmail, EMAILS_ALLOWED)
+      makeJobPositionsForBudget(contactWithEmail, EMAILS_ALLOWED, NUM_TEST_RECORDS - EMAILS_ALLOWED)
     );
     insert jobPositions;
 
     List<Job_Position__c> testJobPositions = [
-      SELECT Id, Position_Budget__c, HR_Manager__c
+      SELECT Id, Position_Budget__c, HR_Manager__c, Name
       FROM Job_Position__c
     ];
 
@@ -93,7 +95,9 @@ public with sharing class JobPositionTriggerTest {
     Set<Id> hrManagerIds = new Set<Id>();
 
     for (Job_Position__c jobPosition : testJobPositions) {
-      budget = (math.mod(i, 2) > 0) ? 5100 : 4000;
+      budget = (math.mod(i, 2) > 0)
+        ? JobPositionHelper.HIGH_BUDGET_LIMIT + 100
+        : JobPositionHelper.HIGH_BUDGET_LIMIT - 100;
       jobPosition.Position_Budget__c = budget;
       hrManagerIds.add(jobPosition.HR_Manager__c);
       i++;
@@ -101,28 +105,28 @@ public with sharing class JobPositionTriggerTest {
     update testJobPositions;
 
     List<Task> tasks = new List<Task>([SELECT Id, WhoId, Subject FROM Task]);
+
     Map<String, Task> tasksByJobName = new Map<String, Task>();
     String extractedTaskName = null;
     for (Task task : tasks) {
       extractedTaskName = task.Subject.substring(
-        task.Subject.lastIndexOf(' ') + 1
+        task.Subject.lastIndexOf(': ') + 2
       );
       tasksByJobName.put(extractedTaskName, task);
     }
 
-    i = 0;
     for (Job_Position__c jobPosition : testJobPositions) {
+      Task linkedTask = tasksByJobName.get(jobPosition.Name);
       if (jobPosition.Position_Budget__c > 5000) {
-        Task task = tasksByJobName.get(jobPosition.Name);
-        System.assert(task != null);
-        System.assert(task.WhoId == jobPosition.HR_Manager__c);
+        System.assert(linkedTask != null);
+        System.assert(linkedTask.WhoId == jobPosition.HR_Manager__c);
       } else {
-        System.assert(tasks.size() == 0);
+        System.assert(linkedTask == null);
       }
     }
 
-    // verify number of sent emails
+    // verify that emails were sent 
     Integer invocations = Limits.getEmailInvocations();
-    System.assert(invocations == EMAILS_ALLOWED);
+    System.assert(invocations == 2);
   }
 }

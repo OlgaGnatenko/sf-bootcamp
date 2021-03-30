@@ -38,6 +38,11 @@ public with sharing class CandidateTriggerTest {
     return candidates;
   }
 
+  @TestSetup
+  static void makeData(){
+    
+  }
+
   @isTest
   static void testValidateUSAVisaDates() {
     // test all 3 cases onCreate
