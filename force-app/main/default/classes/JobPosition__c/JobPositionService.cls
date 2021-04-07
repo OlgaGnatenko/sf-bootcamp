@@ -11,7 +11,6 @@ public with sharing class JobPositionService {
           Location__c,
           Position_Budget__c
         FROM Job_Position__c
-        WITH SECURITY_ENFORCED
         ORDER BY Priority__c, Name
       ];
     return [
@@ -25,7 +24,6 @@ public with sharing class JobPositionService {
         Position_Budget__c
       FROM Job_Position__c
       WHERE Practice_Unit__c = :practiceUnit
-      WITH SECURITY_ENFORCED
       ORDER BY Priority__c, Name
     ];
   }
