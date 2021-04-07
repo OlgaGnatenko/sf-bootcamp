@@ -1,3 +1,15 @@
 <template>
-    
+  <lightning-card>
+    <template if:true={positions.data}>
+      <lightning-datatable
+        key-field="Id"
+        data={positions.data}
+        columns={columns}
+      >
+      </lightning-datatable>
+    </template>
+    <template if:false={positions.data}>
+      <p>NO JOB POSITIONS AVAILABLE</p>
+    </template>
+  </lightning-card>
 </template>
